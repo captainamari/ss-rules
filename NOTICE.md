@@ -1,6 +1,6 @@
 # Third-party notices
 
-This repository combines adapted configuration and rule data with an offline build/check tool.
+This repository combines adapted configuration and rule data with an offline build tool.
 The combined distribution and new code are provided under GPL-2.0-only (see LICENSE).
 
 ## LingJingMaster/Shadowrocket-Rules

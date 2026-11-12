@@ -17,7 +17,7 @@
 | 地区默认直接选美国/日本/香港 | 未知节点库存时默认 PROXY；地区选择器显式初始 REJECT，用户选真实成员后启用 |
 | 地区组自动测速、容差 0 | 地区组为手动 select；另有可选自动测速组，容差 100ms，减少微小延迟波动引起的切换 |
 | US、单字“美/港”等宽匹配 | 国家代码按字母边界匹配，保留明确中文地区名/旗帜；不推断节点真实地理位置 |
-| Google 在 YouTube 之前 | 专用服务在通用服务之前，有实际域名回归样例 |
+| Google 在 YouTube 之前 | 专用服务在通用服务之前 |
 | AI 服务集中在一个组 | ChatGPT、Claude、Google AI、其他 AI、Apple 智能分别选择出口 |
 | 大量关键词、User-Agent、URL 正则 | 上游通用名单只采用 DOMAIN/DOMAIN-SUFFIX，局域网和 Telegram 另保留 CIDR；每种省略都有构建报告 |
 | 远程实时加载多份名单 | 固定提交的本地快照和校验值，生成完整文件，适配私有仓库 |
@@ -37,7 +37,7 @@ select 列表不提供自动故障转移。默认没有配置跨地区重试，�
 
 ## 规则覆盖边界
 
-- 丢弃上游 DOMAIN-KEYWORD，避免 `google` 匹配包含该字符串的无关网站、`claude` 匹配无关域名。自有 strict 名单仍可显式使用关键词，但使用者应补回归样例。
+- 丢弃上游 DOMAIN-KEYWORD，避免 `google` 匹配包含该字符串的无关网站、`claude` 匹配无关域名。自有 strict 名单仍可显式使用关键词，但应注意匹配范围。
 - User-Agent 和 URL-REGEX 不进入生成文件，避免依赖 HTTPS 解密才能看到的字段。
 - `www.sc.com/hk/` 的路径规则替换为 `www.sc.com` 主机规则，会影响该主机的所有地区路径；需要更细粒度时不应误称为已支持按 HTTPS 路径分流。
 - 不把整个 `livekit.cloud` 当作 ChatGPT，不沿用 ChatGPT 的旧单 IP 规则，也不把所有 `www.bing.com` 访问都归为 Copilot。语音使用新的共享域名时先查日志，再补精确主机规则。
@@ -59,8 +59,8 @@ QUIC 默认允许，WebRTC 端口不统一阻断。若某节点不支持 UDP，�
 
 ## 快照和构建
 
-`vendor/` 是未改写的上游原文；`sources.json` 记录 repo/path/revision/SHA-256。自有拆分名单带修改日期。正常构建和 CI 不联网，固定快照变动但锁未更新会失败。
+`vendor/` 是未改写的上游原文；`sources.json` 记录 repo/path/revision/SHA-256。自有拆分名单带修改日期。正常构建不联网，固定快照变动但锁未更新会失败。仓库不包含测试套件或自动测试工作流。
 
 普通域名名单与 DOMAIN-SET 格式分别解析：DOMAIN-SET 中前导 `.` 转为 DOMAIN-SUFFIX，无前导点转为 DOMAIN。上游错误地统一写为 IP-CIDR 的 IPv6 条目会转换为 IP-CIDR6；所有采用的 IP 条目必须保留 no-resolve。
 
-脚本不是完整 Shadowrocket 解析器，遇到不认识的上游类型会失败。已知但不采用的类型按声明模式省略；不能以“工具检查通过”代替手机导入与实际访问。
+脚本不是完整 Shadowrocket 解析器，遇到不认识的上游类型会失败。已知但不采用的类型按声明模式省略；生成后在手机导入并观察实际访问情况即可。

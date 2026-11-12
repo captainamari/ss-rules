@@ -51,7 +51,7 @@ def main():
         target = stage(args.source, args.revision)
         print(f"Staged at {target.relative_to(ROOT)}; active files were not changed.")
         print("Review vendor diffs and source license changes; then copy reviewed snapshots and sources.json into the repository.")
-        print("Manually reconcile rules/*.list derived from AI lists; rebuild and run checks before committing.")
+        print("Manually reconcile rules/*.list derived from AI lists; rebuild and review the diff before committing.")
         return 0
     except (ValueError, OSError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)

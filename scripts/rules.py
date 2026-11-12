@@ -151,25 +151,6 @@ class Rule:
         values = [self.kind, self.policy] if self.kind == "FINAL" else [self.kind, self.value, self.policy]
         return ",".join(values + list(self.options))
 
-    def matches(self, domain="", ip=None, country=None):
-        domain = domain.lower().rstrip(".")
-        if self.kind == "DOMAIN":
-            return domain == self.value
-        if self.kind == "DOMAIN-SUFFIX":
-            return domain == self.value or domain.endswith("." + self.value)
-        if self.kind == "DOMAIN-KEYWORD":
-            return bool(domain) and self.value in domain
-        if self.kind in IP_TYPES:
-            if ip is None:
-                return False  # Never resolve domains to simulate no-resolve.
-            address = ipaddress.ip_address(ip)
-            network = ipaddress.ip_network(self.value)
-            return address.version == network.version and address in network
-        if self.kind == "GEOIP":
-            return country == self.value  # Caller-supplied fixture, not a GeoIP lookup.
-        return self.kind == "FINAL"
-
-
 def checked_rule(kind, value, policy, options=(), origin=""):
     if not policy or any(ch in policy for ch in ",\n"):
         raise ValueError(f"Invalid policy: {origin}")
@@ -273,10 +254,6 @@ def compile_rules(root=ROOT):
     if [i for i, r in enumerate(result) if r.kind == "FINAL"] != [len(result) - 1]:
         raise ValueError("Exactly one FINAL must appear at the end")
     return result, report
-
-
-def first_match(rules, **request):
-    return next(rule for rule in rules if rule.matches(**request))
 
 
 def render(root=ROOT):
