@@ -1,0 +1,5 @@
+DOMAIN,localhost
+DOMAIN-SUFFIX,local
+DOMAIN-SUFFIX,home.arpa
+DOMAIN-SUFFIX,in-addr.arpa
+DOMAIN-SUFFIX,ip6.arpa

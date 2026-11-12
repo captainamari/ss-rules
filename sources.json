@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "Shadowrocket.conf",
+      "local": "vendor/lingjing/Shadowrocket.conf",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "a9b82a8dcb1e8653e137edfb1ecd6625203d87eca4435651e2e21f7e763354dc"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "AI.list",
+      "local": "vendor/lingjing/AI.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "85d4359af0fde69386a84866cda7511ac564993c1a8bba1ac304d7eb03b45750"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "Apple.list",
+      "local": "vendor/lingjing/Apple.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "67c5791523018f216d955ab3453816011c2ff0f0430632033a459b8ef6fccff9"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "ApplePush.list",
+      "local": "vendor/lingjing/ApplePush.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "078500e904a024b4efe3fb5c0637bf4271514ed5b91100feed98588e6564eae8"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "Google.list",
+      "local": "vendor/lingjing/Google.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "f6eeba7b8465bec2b01950194746e7ed3d091931eb42b8fcc7d011a4b57b25c4"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "HK_Banks_Direct.list",
+      "local": "vendor/lingjing/HK_Banks_Direct.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "c7bc002172b6fc691fc18cd9d267dab05eed54d8878dcc4774d9dcdfae9cc145"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "HK_Broker.list",
+      "local": "vendor/lingjing/HK_Broker.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "8ab40480d0438c6ffd294ad62bdbf286174ee972430cee52aa0122f1db6f1174"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "HSBC_HK.list",
+      "local": "vendor/lingjing/HSBC_HK.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "9dc67e45c4f2eedfee1ab7f2a5c143c866380f56db3e2d3e4f83adb5927a187b"
+    },
+    {
+      "repository": "LingJingMaster/Shadowrocket-Rules",
+      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
+      "path": "Mail.list",
+      "local": "vendor/lingjing/Mail.list",
+      "format": "rules",
+      "source": "lingjing",
+      "sha256": "e07632eba794d965aa728d2fab7468704037e030b21e34127d77f1aacd153db0"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/YouTube/YouTube.list",
+      "local": "vendor/blackmatrix7/YouTube.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "f764cd91a779982225b3553ece8033c86a6545f4990f5fefd356805de962aee9"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/BiliBili/BiliBili.list",
+      "local": "vendor/blackmatrix7/BiliBili.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "9b22a7bdf97792346bf480771841b6cd1097ec7ad034b34528c14f3798107854"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/Lan/Lan.list",
+      "local": "vendor/blackmatrix7/Lan.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "79c3b96f8064bf1b53678fb0dc7d9e92d74c729869fe8dc494afa2e9b12e2856"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/Telegram/Telegram.list",
+      "local": "vendor/blackmatrix7/Telegram.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "09f093cce5b3e2994147a2640e03040aac75e1db7bf2103fd1c9a2509b0176ab"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/GitHub/GitHub.list",
+      "local": "vendor/blackmatrix7/GitHub.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "ced8ab0ecda5775d04ec8ee6a57b282181108565331a6a1d85e9a26fee25d79b"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/GitLab/GitLab.list",
+      "local": "vendor/blackmatrix7/GitLab.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "0c41418dd3d49d6313c5516b1d828a39aa13e1c08b9750698b5e4ec5d7ba5f8c"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/Atlassian/Atlassian.list",
+      "local": "vendor/blackmatrix7/Atlassian.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "243613384193edb80bcc0ee4106fc2b110c23b7c32f46258947be453f483ab9f"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/Microsoft/Microsoft.list",
+      "local": "vendor/blackmatrix7/Microsoft.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "22df1a1017ad5d41755bf020ca8eb9afeedc7bdc2c649ed2074b255227a7ed8e"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/China/China.list",
+      "local": "vendor/blackmatrix7/China.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "65477cd1e2917a8ca09ba08132e9d9131c54c0d9e1cfcba0be2eaa8ea1a04b75"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/China/China_Domain.list",
+      "local": "vendor/blackmatrix7/China_Domain.list",
+      "format": "domains",
+      "source": "blackmatrix7",
+      "sha256": "d35eec789ae09a6d2b6dd48ed2c52d6d811f433b1e73a92b2f9246b778fa7923"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/Apple/Apple_Domain.list",
+      "local": "vendor/blackmatrix7/Apple_Domain.list",
+      "format": "domains",
+      "source": "blackmatrix7",
+      "sha256": "f1074adb086fd44a95db76e9dcc96fc1133f0ec4c29b15d6f2346686deb25d00"
+    },
+    {
+      "repository": "blackmatrix7/ios_rule_script",
+      "revision": "0b6897dc17e0c513d25449c935a9694818e32f0c",
+      "path": "rule/Shadowrocket/BlockHttpDNS/BlockHttpDNS.list",
+      "local": "vendor/blackmatrix7/BlockHttpDNS.list",
+      "format": "rules",
+      "source": "blackmatrix7",
+      "sha256": "2d44341f27493c165df1e2ea695e5e566d44e361dd84eee40145984cad3da6b4"
+    }
+  ]
+}

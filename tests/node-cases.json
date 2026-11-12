@@ -1,0 +1,208 @@
+[
+  {
+    "name": "美国洛杉矶 01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "美国节点"
+    ]
+  },
+  {
+    "name": "[US] LA 01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "美国节点"
+    ]
+  },
+  {
+    "name": "us-02",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "美国节点"
+    ]
+  },
+  {
+    "name": "USA03",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "美国节点"
+    ]
+  },
+  {
+    "name": "United States 01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "美国节点"
+    ]
+  },
+  {
+    "name": "AUS-Sydney-01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": []
+  },
+  {
+    "name": "RUS-Moscow-01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": []
+  },
+  {
+    "name": "美食广告",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": []
+  },
+  {
+    "name": "Tokyo 01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "日本节点"
+    ]
+  },
+  {
+    "name": "[JP] 02",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "日本节点"
+    ]
+  },
+  {
+    "name": "香港 01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "香港节点"
+    ]
+  },
+  {
+    "name": "HK01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "香港节点"
+    ]
+  },
+  {
+    "name": "Hong Kong 02",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "香港节点"
+    ]
+  },
+  {
+    "name": "台湾 01",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "台湾节点"
+    ]
+  },
+  {
+    "name": "Taipei 02",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "台湾节点"
+    ]
+  },
+  {
+    "name": "TWN-03",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": [
+      "台湾节点"
+    ]
+  },
+  {
+    "name": "节点 A",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": []
+  },
+  {
+    "name": "企业专线-港",
+    "groups_under_test": [
+      "美国节点",
+      "日本节点",
+      "香港节点",
+      "台湾节点"
+    ],
+    "expected": []
+  }
+]

@@ -1,0 +1,8 @@
+# Explicit domestic services, ahead of broad upstream categories.
+DOMAIN-SUFFIX,weixin.com
+DOMAIN-SUFFIX,weixin.qq.com
+DOMAIN-SUFFIX,qpic.cn
+DOMAIN-SUFFIX,qlogo.cn
+DOMAIN-SUFFIX,doubao.com
+DOMAIN-SUFFIX,deepseek.com
+DOMAIN-SUFFIX,deepseeksvc.com

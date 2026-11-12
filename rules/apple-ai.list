@@ -1,0 +1,14 @@
+# Adapted from LingJingMaster/Shadowrocket-Rules @ 091d94e826ae2973bc0884aec53b97ec94949bac
+# Modified 2026-11-12: split services; omit broad keywords, shared LiveKit suffix and legacy IPs.
+DOMAIN,guzzoni.apple.com
+DOMAIN,mask-api.fe.apple-dns.net
+DOMAIN,mask-api.icloud.com
+DOMAIN,mask-t.apple-dns.net
+DOMAIN,mask.apple-dns.net
+DOMAIN-SUFFIX,smoot.apple.com
+DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net
+DOMAIN-SUFFIX,cp4.cloudflare.com
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com

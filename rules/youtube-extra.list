@@ -1,0 +1,4 @@
+# Translation endpoints used by YouTube; kept before general Google classification.
+# These shared endpoints also affect non-YouTube callers. See docs/design.md.
+DOMAIN,translate.googleapis.com
+DOMAIN,translate-pa.googleapis.com

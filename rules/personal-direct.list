@@ -1,0 +1,3 @@
+# Highest-priority personal direct exceptions. Empty until deliberately configured.
+# Example: DOMAIN,internal.example.com
+# Private ranges in skip-proxy / tun-excluded-routes bypass Rule processing.

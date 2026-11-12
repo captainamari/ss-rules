@@ -1,0 +1,25 @@
+name: Validate rules
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rules-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Verify locked sources and reproducible configuration
+        run: python3 scripts/build.py --check
+      - name: Check service routes and region-name matching
+        run: python3 scripts/check.py
+      - name: Run negative and regression tests
+        run: python3 -m unittest discover -s tests -v

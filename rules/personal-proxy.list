@@ -1,0 +1,2 @@
+# Personal proxy exceptions; follows personal-direct.list. Do not duplicate across both files.
+# Example: DOMAIN,api.example.com

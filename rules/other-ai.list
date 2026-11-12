@@ -1,0 +1,9 @@
+# Adapted from LingJingMaster/Shadowrocket-Rules @ 091d94e826ae2973bc0884aec53b97ec94949bac
+# Modified 2026-11-12: split services; omit broad keywords, shared LiveKit suffix and legacy IPs.
+DOMAIN,copilot.microsoft.com
+DOMAIN,sydney.bing.com
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN-SUFFIX,openrouter.ai
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,pplx.ai
+DOMAIN,pplx-res.cloudinary.com

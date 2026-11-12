@@ -1,0 +1,409 @@
+[
+  {
+    "name": "chatgpt.com",
+    "domain": "chatgpt.com",
+    "policy": "ChatGPT"
+  },
+  {
+    "name": "chat.openai.com",
+    "domain": "chat.openai.com",
+    "policy": "ChatGPT"
+  },
+  {
+    "name": "api.openai.com",
+    "domain": "api.openai.com",
+    "policy": "ChatGPT"
+  },
+  {
+    "name": "files.oaiusercontent.com",
+    "domain": "files.oaiusercontent.com",
+    "policy": "ChatGPT"
+  },
+  {
+    "name": "cdn.oaistatic.com",
+    "domain": "cdn.oaistatic.com",
+    "policy": "ChatGPT"
+  },
+  {
+    "name": "sora.com",
+    "domain": "sora.com",
+    "policy": "ChatGPT"
+  },
+  {
+    "name": "api.anthropic.com",
+    "domain": "api.anthropic.com",
+    "policy": "Claude"
+  },
+  {
+    "name": "claude.ai",
+    "domain": "claude.ai",
+    "policy": "Claude"
+  },
+  {
+    "name": "claude.com",
+    "domain": "claude.com",
+    "policy": "Claude"
+  },
+  {
+    "name": "files.claudeusercontent.com",
+    "domain": "files.claudeusercontent.com",
+    "policy": "Claude"
+  },
+  {
+    "name": "gemini.google.com",
+    "domain": "gemini.google.com",
+    "policy": "Google AI"
+  },
+  {
+    "name": "generativelanguage.googleapis.com",
+    "domain": "generativelanguage.googleapis.com",
+    "policy": "Google AI"
+  },
+  {
+    "name": "aistudio.google.com",
+    "domain": "aistudio.google.com",
+    "policy": "Google AI"
+  },
+  {
+    "name": "notebooklm.google.com",
+    "domain": "notebooklm.google.com",
+    "policy": "Google AI"
+  },
+  {
+    "name": "notebooklm.google",
+    "domain": "notebooklm.google",
+    "policy": "Google AI"
+  },
+  {
+    "name": "antigravity.google",
+    "domain": "antigravity.google",
+    "policy": "Google AI"
+  },
+  {
+    "name": "www.youtube.com",
+    "domain": "www.youtube.com",
+    "policy": "YouTube"
+  },
+  {
+    "name": "r1---sn.googlevideo.com",
+    "domain": "r1---sn.googlevideo.com",
+    "policy": "YouTube"
+  },
+  {
+    "name": "youtubei.googleapis.com",
+    "domain": "youtubei.googleapis.com",
+    "policy": "YouTube"
+  },
+  {
+    "name": "i.ytimg.com",
+    "domain": "i.ytimg.com",
+    "policy": "YouTube"
+  },
+  {
+    "name": "translate.googleapis.com",
+    "domain": "translate.googleapis.com",
+    "policy": "YouTube"
+  },
+  {
+    "name": "openrouter.ai",
+    "domain": "openrouter.ai",
+    "policy": "其他 AI"
+  },
+  {
+    "name": "copilot.microsoft.com",
+    "domain": "copilot.microsoft.com",
+    "policy": "其他 AI"
+  },
+  {
+    "name": "api.githubcopilot.com",
+    "domain": "api.githubcopilot.com",
+    "policy": "其他 AI"
+  },
+  {
+    "name": "perplexity.ai",
+    "domain": "perplexity.ai",
+    "policy": "其他 AI"
+  },
+  {
+    "name": "guzzoni.apple.com",
+    "domain": "guzzoni.apple.com",
+    "policy": "Apple 智能"
+  },
+  {
+    "name": "mask-api.icloud.com",
+    "domain": "mask-api.icloud.com",
+    "policy": "Apple 智能"
+  },
+  {
+    "name": "github.com",
+    "domain": "github.com",
+    "policy": "开发服务"
+  },
+  {
+    "name": "raw.githubusercontent.com",
+    "domain": "raw.githubusercontent.com",
+    "policy": "开发服务"
+  },
+  {
+    "name": "github.io",
+    "domain": "github.io",
+    "policy": "开发服务"
+  },
+  {
+    "name": "gitlab.com",
+    "domain": "gitlab.com",
+    "policy": "开发服务"
+  },
+  {
+    "name": "pypi.org",
+    "domain": "pypi.org",
+    "policy": "开发服务"
+  },
+  {
+    "name": "files.pythonhosted.org",
+    "domain": "files.pythonhosted.org",
+    "policy": "开发服务"
+  },
+  {
+    "name": "registry.npmjs.org",
+    "domain": "registry.npmjs.org",
+    "policy": "开发服务"
+  },
+  {
+    "name": "registry-1.docker.io",
+    "domain": "registry-1.docker.io",
+    "policy": "开发服务"
+  },
+  {
+    "name": "www.google.com",
+    "domain": "www.google.com",
+    "policy": "Google"
+  },
+  {
+    "name": "maps.googleapis.com",
+    "domain": "maps.googleapis.com",
+    "policy": "Google"
+  },
+  {
+    "name": "imap.gmail.com",
+    "domain": "imap.gmail.com",
+    "policy": "邮件"
+  },
+  {
+    "name": "smtp.office365.com",
+    "domain": "smtp.office365.com",
+    "policy": "邮件"
+  },
+  {
+    "name": "www.hsbc.com.hk",
+    "domain": "www.hsbc.com.hk",
+    "policy": "香港银行"
+  },
+  {
+    "name": "api.sc.com",
+    "domain": "api.sc.com",
+    "policy": "香港银行"
+  },
+  {
+    "name": "www.sc.com",
+    "domain": "www.sc.com",
+    "policy": "香港银行"
+  },
+  {
+    "name": "trade.futunn.com",
+    "domain": "trade.futunn.com",
+    "policy": "券商"
+  },
+  {
+    "name": "openapi.longbridge.com",
+    "domain": "openapi.longbridge.com",
+    "policy": "券商"
+  },
+  {
+    "name": "www.interactivebrokers.com",
+    "domain": "www.interactivebrokers.com",
+    "policy": "券商"
+  },
+  {
+    "name": "www.schwab.com",
+    "domain": "www.schwab.com",
+    "policy": "券商"
+  },
+  {
+    "name": "apple.com",
+    "domain": "apple.com",
+    "policy": "Apple"
+  },
+  {
+    "name": "photos.icloud.com",
+    "domain": "photos.icloud.com",
+    "policy": "Apple"
+  },
+  {
+    "name": "api.push.apple.com",
+    "domain": "api.push.apple.com",
+    "policy": "Apple 推送"
+  },
+  {
+    "name": "tools.xuzz.me",
+    "domain": "tools.xuzz.me",
+    "policy": "个人服务"
+  },
+  {
+    "name": "stocks.watchpoint.space",
+    "domain": "stocks.watchpoint.space",
+    "policy": "个人服务"
+  },
+  {
+    "name": "deepseek.com",
+    "domain": "deepseek.com",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "qpic.cn",
+    "domain": "qpic.cn",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "www.bilibili.com",
+    "domain": "www.bilibili.com",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "www.taobao.com",
+    "domain": "www.taobao.com",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "printer.local",
+    "domain": "printer.local",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "dns.weixin.qq.com",
+    "domain": "dns.weixin.qq.com",
+    "policy": "HTTPDNS"
+  },
+  {
+    "name": "api.telegram.org",
+    "domain": "api.telegram.org",
+    "policy": "Telegram"
+  },
+  {
+    "name": "google.evil.example",
+    "domain": "google.evil.example",
+    "policy": "默认代理"
+  },
+  {
+    "name": "notgoogle.example",
+    "domain": "notgoogle.example",
+    "policy": "默认代理"
+  },
+  {
+    "name": "fakeclaude.example",
+    "domain": "fakeclaude.example",
+    "policy": "默认代理"
+  },
+  {
+    "name": "notgithub.example",
+    "domain": "notgithub.example",
+    "policy": "默认代理"
+  },
+  {
+    "name": "agent-stores.s3.us-east-1.amazonaws.com",
+    "domain": "agent-stores.s3.us-east-1.amazonaws.com",
+    "policy": "默认代理"
+  },
+  {
+    "name": "unknown.example",
+    "domain": "unknown.example",
+    "policy": "默认代理"
+  },
+  {
+    "name": "example.cn",
+    "domain": "example.cn",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "example.ms",
+    "domain": "example.ms",
+    "policy": "默认代理"
+  },
+  {
+    "name": "GeoIP fallback uses supplied country",
+    "domain": "unknown-cn.example",
+    "policy": "DIRECT",
+    "country": "CN"
+  },
+  {
+    "name": "Service rule precedes GeoIP CN",
+    "domain": "chatgpt.com",
+    "policy": "ChatGPT",
+    "country": "CN"
+  },
+  {
+    "name": "Case and trailing dot",
+    "domain": "CHATGPT.COM.",
+    "policy": "ChatGPT"
+  },
+  {
+    "name": "192.168.1.2",
+    "ip": "192.168.1.2",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "::1",
+    "ip": "::1",
+    "policy": "DIRECT"
+  },
+  {
+    "name": "149.154.167.51",
+    "ip": "149.154.167.51",
+    "policy": "Telegram"
+  },
+  {
+    "name": "2001:b28:f23c::1",
+    "ip": "2001:b28:f23c::1",
+    "policy": "Telegram"
+  },
+  {
+    "name": "8.8.8.8",
+    "ip": "8.8.8.8",
+    "policy": "默认代理"
+  },
+  {
+    "name": "redirector.offline-maps.gvt1.com",
+    "domain": "redirector.offline-maps.gvt1.com",
+    "policy": "Google"
+  },
+  {
+    "name": "gcp.gvt2.com",
+    "domain": "gcp.gvt2.com",
+    "policy": "Google"
+  },
+  {
+    "name": "appldnld.apple.com.edgesuite.net",
+    "domain": "appldnld.apple.com.edgesuite.net",
+    "policy": "Apple"
+  },
+  {
+    "name": "e16991.b.akamaiedge.net",
+    "domain": "e16991.b.akamaiedge.net",
+    "policy": "Apple"
+  },
+  {
+    "name": "unrelated.edgesuite.net",
+    "domain": "unrelated.edgesuite.net",
+    "policy": "默认代理"
+  },
+  {
+    "name": "unrelated.akadns.net",
+    "domain": "unrelated.akadns.net",
+    "policy": "默认代理"
+  },
+  {
+    "name": "update.microsoft.com",
+    "domain": "update.microsoft.com",
+    "policy": "Microsoft"
+  }
+]

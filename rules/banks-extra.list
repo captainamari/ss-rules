@@ -1,0 +1,3 @@
+# www.sc.com/hk/ cannot be matched without HTTPS decryption.
+# Explicit host routing also covers other regional paths on this same host.
+DOMAIN,www.sc.com

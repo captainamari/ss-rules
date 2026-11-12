@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "region_groups": [
+    "美国节点",
+    "日本节点",
+    "香港节点",
+    "台湾节点"
+  ],
+  "rules": [
+    {
+      "path": "rules/personal-direct.list",
+      "policy": "DIRECT",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/personal-proxy.list",
+      "policy": "默认代理",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/local.list",
+      "policy": "DIRECT",
+      "mode": "strict"
+    },
+    {
+      "path": "vendor/blackmatrix7/Lan.list",
+      "policy": "DIRECT",
+      "mode": "network"
+    },
+    {
+      "path": "rules/personal-services.list",
+      "policy": "个人服务",
+      "mode": "strict"
+    },
+    {
+      "path": "vendor/blackmatrix7/BlockHttpDNS.list",
+      "policy": "HTTPDNS",
+      "mode": "domains"
+    },
+    {
+      "path": "rules/domestic.list",
+      "policy": "DIRECT",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/chatgpt.list",
+      "policy": "ChatGPT",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/claude.list",
+      "policy": "Claude",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/google-ai.list",
+      "policy": "Google AI",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/other-ai.list",
+      "policy": "其他 AI",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/apple-ai.list",
+      "policy": "Apple 智能",
+      "mode": "strict"
+    },
+    {
+      "path": "rules/youtube-extra.list",
+      "policy": "YouTube",
+      "mode": "strict"
+    },
+    {
+      "path": "vendor/blackmatrix7/YouTube.list",
+      "policy": "YouTube",
+      "mode": "domains",
+      "exclude": [
+        "DOMAIN-SUFFIX,gvt1.com",
+        "DOMAIN-SUFFIX,gvt2.com"
+      ]
+    },
+    {
+      "path": "vendor/lingjing/Mail.list",
+      "policy": "邮件",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/lingjing/HSBC_HK.list",
+      "policy": "香港银行",
+      "mode": "domains",
+      "exclude": [
+        "DOMAIN,mobile.eum-appdynamics.com"
+      ]
+    },
+    {
+      "path": "rules/banks-extra.list",
+      "policy": "香港银行",
+      "mode": "strict"
+    },
+    {
+      "path": "vendor/lingjing/HK_Banks_Direct.list",
+      "policy": "香港银行",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/lingjing/HK_Broker.list",
+      "policy": "券商",
+      "mode": "domains",
+      "exclude": [
+        "DOMAIN,cg.play-analytics.com"
+      ]
+    },
+    {
+      "path": "vendor/blackmatrix7/GitHub.list",
+      "policy": "开发服务",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/blackmatrix7/GitLab.list",
+      "policy": "开发服务",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/blackmatrix7/Atlassian.list",
+      "policy": "开发服务",
+      "mode": "domains"
+    },
+    {
+      "path": "rules/development-extra.list",
+      "policy": "开发服务",
+      "mode": "strict"
+    },
+    {
+      "path": "vendor/blackmatrix7/Telegram.list",
+      "policy": "Telegram",
+      "mode": "network"
+    },
+    {
+      "path": "rules/google-extra.list",
+      "policy": "Google",
+      "mode": "strict"
+    },
+    {
+      "path": "vendor/lingjing/Google.list",
+      "policy": "Google",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/blackmatrix7/Microsoft.list",
+      "policy": "Microsoft",
+      "mode": "domains",
+      "exclude": [
+        "DOMAIN-SUFFIX,akadns.net",
+        "DOMAIN-SUFFIX,edgesuite.net",
+        "DOMAIN-SUFFIX,b.akamaiedge.net",
+        "DOMAIN-SUFFIX,g.akamaiedge.net",
+        "DOMAIN-SUFFIX,azureedge.net"
+      ]
+    },
+    {
+      "path": "vendor/lingjing/ApplePush.list",
+      "policy": "Apple 推送",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/lingjing/Apple.list",
+      "policy": "Apple",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/blackmatrix7/Apple_Domain.list",
+      "policy": "Apple",
+      "mode": "domain-set",
+      "exclude": [
+        ".akadns.net"
+      ]
+    },
+    {
+      "path": "vendor/blackmatrix7/BiliBili.list",
+      "policy": "DIRECT",
+      "mode": "domains"
+    },
+    {
+      "path": "vendor/blackmatrix7/China.list",
+      "policy": "DIRECT",
+      "mode": "domains",
+      "exclude": [
+        "DOMAIN-SUFFIX,ms"
+      ]
+    },
+    {
+      "path": "vendor/blackmatrix7/China_Domain.list",
+      "policy": "DIRECT",
+      "mode": "domain-set",
+      "exclude": [
+        ".akadns.net"
+      ]
+    }
+  ],
+  "tail": [
+    "GEOIP,CN,DIRECT",
+    "FINAL,默认代理"
+  ]
+}
