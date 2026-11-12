@@ -94,7 +94,7 @@ def groups_from(text: str):
                 key, value = token.split("=", 1)
                 if key in options or not value:
                     raise ValueError(f"Duplicate/empty option in {name}: {key}")
-                if key not in {"policy-select-name", "policy-regex-filter", "url", "interval", "timeout", "tolerance"}:
+                if key not in {"policy-select-name", "policy-regex-filter", "url", "interval", "timeout", "tolerance", "hidden"}:
                     raise ValueError(f"Unsupported group option in {name}: {key}")
                 options[key] = value
             else:
@@ -103,6 +103,8 @@ def groups_from(text: str):
             raise ValueError(f"Duplicate members: {name}")
         if "policy-regex-filter" in options:
             re.compile(options["policy-regex-filter"])
+        if "hidden" in options and options["hidden"] not in {"0", "1"}:
+            raise ValueError(f"Invalid hidden setting: {name}")
         default = options.get("policy-select-name")
         if default is not None and default not in members:
             raise ValueError(f"Invalid default member of {name}: {default}")
