@@ -1,5 +1,4 @@
-# Adapted from LingJingMaster/Shadowrocket-Rules @ 091d94e826ae2973bc0884aec53b97ec94949bac
-# Modified 2026-11-12: split services; omit broad keywords, shared LiveKit suffix and legacy IPs.
+# Source: LingJingMaster/Shadowrocket-Rules (MIT); see NOTICE.md.
 DOMAIN-SUFFIX,chat.com
 DOMAIN-SUFFIX,chatgpt.com
 DOMAIN-SUFFIX,oaistatic.com

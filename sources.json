@@ -4,15 +4,6 @@
     {
       "repository": "LingJingMaster/Shadowrocket-Rules",
       "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
-      "path": "Shadowrocket.conf",
-      "local": "vendor/lingjing/Shadowrocket.conf",
-      "format": "rules",
-      "source": "lingjing",
-      "sha256": "a9b82a8dcb1e8653e137edfb1ecd6625203d87eca4435651e2e21f7e763354dc"
-    },
-    {
-      "repository": "LingJingMaster/Shadowrocket-Rules",
-      "revision": "091d94e826ae2973bc0884aec53b97ec94949bac",
       "path": "AI.list",
       "local": "vendor/lingjing/AI.list",
       "format": "rules",

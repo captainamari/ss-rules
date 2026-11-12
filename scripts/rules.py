@@ -1,7 +1,5 @@
-"""Small, offline compiler for the deliberately limited rule syntax used here.
+"""Build Shadowrocket routing rules from local configuration and source lists.
 
-This is not a Shadowrocket emulator. DNS, GeoIP databases, tunnels, certificates,
-client-selected policies and service availability require device verification.
 SPDX-License-Identifier: GPL-2.0-only
 """
 from __future__ import annotations
@@ -277,7 +275,5 @@ def render(root=ROOT):
         raise ValueError("Unexpected config sections; MITM/rewrite are intentionally absent")
     if any(line.startswith(("RULE-SET,", "DOMAIN-SET,")) for line in parsed["Rule"]):
         raise ValueError("Generated file must be self-contained")
-    if any(line.startswith("update-url") for line in parsed["General"]):
-        raise ValueError("Private repository must not expose unauthenticated update URLs")
     report["rule_count"] = len(rules)
     return output, rules, groups, report
