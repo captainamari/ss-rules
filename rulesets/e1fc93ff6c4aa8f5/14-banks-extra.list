@@ -1,0 +1,3 @@
+# Source: rules/banks-extra.list
+# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.
+DOMAIN,www.sc.com

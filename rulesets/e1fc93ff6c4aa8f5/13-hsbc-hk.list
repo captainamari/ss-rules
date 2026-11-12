@@ -1,0 +1,3 @@
+# Source: vendor/lingjing/HSBC_HK.list
+# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.
+DOMAIN-SUFFIX,hsbc.com.hk

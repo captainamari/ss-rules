@@ -22,11 +22,6 @@
       "mode": "network"
     },
     {
-      "path": "rules/personal-services.list",
-      "policy": "🏠 个人服务",
-      "mode": "strict"
-    },
-    {
       "path": "vendor/blackmatrix7/BlockHttpDNS.list",
       "policy": "🧰 应用内 DNS",
       "mode": "domains"
@@ -97,6 +92,11 @@
       "path": "vendor/lingjing/HK_Banks_Direct.list",
       "policy": "🏦 香港银行",
       "mode": "domains"
+    },
+    {
+      "path": "rules/interactive-brokers.list",
+      "policy": "📈 券商服务",
+      "mode": "strict"
     },
     {
       "path": "vendor/lingjing/HK_Broker.list",

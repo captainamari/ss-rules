@@ -1,0 +1,9 @@
+# Source: rules/other-ai.list
+# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.
+DOMAIN,copilot.microsoft.com
+DOMAIN,sydney.bing.com
+DOMAIN-SUFFIX,githubcopilot.com
+DOMAIN-SUFFIX,openrouter.ai
+DOMAIN-SUFFIX,perplexity.ai
+DOMAIN-SUFFIX,pplx.ai
+DOMAIN,pplx-res.cloudinary.com

@@ -1,0 +1,4 @@
+# Source: rules/youtube-extra.list
+# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.
+DOMAIN,translate.googleapis.com
+DOMAIN,translate-pa.googleapis.com

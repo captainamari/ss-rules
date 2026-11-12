@@ -1,0 +1,17 @@
+# Interactive Brokers / IBKR: websites, Client Portal and trading gateway domains.
+# Official endpoints: https://www.interactivebrokers.com/download/IB-Host-and-Ports.pdf
+# Websites and login: https://ibkrguides.com/clientportal/gettingstarted/login.htm
+DOMAIN-SUFFIX,interactivebrokers.com
+DOMAIN-SUFFIX,interactivebrokers.com.hk
+DOMAIN-SUFFIX,interactivebrokers.ca
+DOMAIN-SUFFIX,interactivebrokers.co.uk
+DOMAIN-SUFFIX,interactivebrokers.ie
+DOMAIN-SUFFIX,interactivebrokers.com.au
+DOMAIN-SUFFIX,interactivebrokers.co.in
+DOMAIN-SUFFIX,interactivebrokers.co.jp
+DOMAIN-SUFFIX,interactivebrokers.com.sg
+DOMAIN-SUFFIX,ibkr.com
+DOMAIN-SUFFIX,ibllc.com
+DOMAIN-SUFFIX,ibllc.com.cn
+DOMAIN-SUFFIX,ibkrguides.com
+DOMAIN-SUFFIX,ibkrcampus.com

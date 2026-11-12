@@ -10,7 +10,7 @@
 
 **用 Shadowrocket 扫码，按提示导入配置。**
 
-[📄 配置直链](https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf) · [🎛 怎么选分流](#routing)
+[📄 推荐配置](https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf) · [📦 完整备用版](https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket-full.conf) · [🎛 怎么选分流](#routing)
 
 </div>
 
@@ -19,10 +19,18 @@
 需要已安装 Shadowrocket，并准备好自己的节点或订阅。本配置负责分流，不提供节点。
 
 1. **添加节点**：在 Shadowrocket 首页导入自己的订阅，选中一条可用节点。
-2. **扫码导入**：扫描上方二维码，在「配置」页确认 `Shadowrocket.conf` 已设为使用中（✔️）。
+2. **扫码导入**：扫描上方二维码，等待远程规则集下载完成，在「配置」页确认 `Shadowrocket.conf` 已设为使用中（✔️）。
 3. **开启连接**：首页「全局路由」选择「配置」，打开连接开关。
 
 **做到这里即可日常使用，不需要逐个设置服务组。** 国内服务和普通 Apple 服务默认直连，海外服务默认跟随首页选中的节点。
+
+| 配置 | 适合的使用方式 |
+|---|---|
+| `Shadowrocket.conf`（推荐） | 小主配置＋本仓库远程规则集，扫码默认导入这一版 |
+| `Shadowrocket-full.conf`（备用） | 全部规则内嵌，下载后不需要额外拉取规则集 |
+
+两版使用相同的策略组和分流顺序。若远程规则下载失败，先恢复网络后重新下载，或手动导入完整备用版；不会自动切换版本。
+
 
 <details>
 <summary>📋 正在用同一台手机浏览？复制地址导入</summary>
@@ -52,6 +60,7 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 | 🎬 YouTube 走香港 | **🎬 YouTube → 🇭🇰 香港自动** |
 | 📌 给某个服务固定一条线路 | 先在 **🖐 手动选择** 中选节点，再让该服务选择 **🖐 手动选择** |
 | 🏦 香港银行使用本地网络 | **🏦 香港银行 → 🎯 直接连接**，初始就是这个选项 |
+| 📈 盈透等券商固定一条线路 | 先在 **🖐 手动选择** 中选节点，再将 **📈 券商服务** 选为 **🖐 手动选择** |
 | 🐟 没有单独分类的网站换出口 | 调整 **🐟 其他流量** |
 | ↩️ 取消某个服务的单独设置 | 把该服务重新选为 **🚀 默认代理** |
 
@@ -90,8 +99,7 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 | 🍏 Apple 服务 | 🎯 直接连接 | Apple 通用服务 |
 | 🔔 Apple 推送 | 🚀 默认代理 | Apple 推送连接 |
 | 🏦 香港银行 | 🎯 直接连接 | 名单中的香港银行 |
-| 📈 券商服务 | 🚀 默认代理 | 名单中的券商 |
-| 🏠 个人服务 | 🚀 默认代理 | tools.xuzz.me、stocks.watchpoint.space |
+| 📈 券商服务 | 🚀 默认代理 | 盈透 IBKR、富途/moomoo、长桥、老虎等 |
 | 🇨🇳 国内服务 | 🎯 直接连接 | 国内域名及 GEOIP CN |
 | 🐟 其他流量 | 🚀 默认代理 | 未命中其他规则的请求 |
 | 🧰 应用内 DNS | 🎯 直接连接 | 名单中的 HTTPDNS 服务，日常无需调整 |
@@ -111,7 +119,10 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 
 **更改「🚀 默认代理」为什么没影响某个 App？** 该 App 如果已单独选择地区或手动组，就不会跟随默认代理。将它重新选为「🚀 默认代理」即可。
 
-**怎样更新？** 在「配置」页更新 `Shadowrocket.conf`。更新地址已经写入配置；更新后确认当前配置及各组选择。节点订阅单独在首页更新。
+**怎样更新？** 在「配置」页更新当前使用的配置，再确认它处于使用中。推荐版会引用对应版本的远程名单，可在配置的「规则集 URL」中检查下载状态；完整备用版更新后仍是完整单文件。节点订阅单独在首页更新。
+
+**盈透如何分流？** 官网、Client Portal、IBKR 域名，以及官方列出的 `ibllc.com`、`ibllc.com.cn` 交易网关域名都归入「📈 券商服务」。可在连接记录中查看实际命中结果；直接连接 IP、未经过可识别域名的流量，需要根据记录补充对应 IP 规则。
+
 
 **这些设置会影响手机网络的哪些部分？** 代理域名使用经代理访问的 DoH，直连域名使用系统 DNS；IPv6 关闭，QUIC 允许。代理不支持 UDP 时拒绝相关流量。域名规则不能区分同一主机下不同 App 或 HTTPS 路径。
 
@@ -125,7 +136,7 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 | 默认出口、图标名称、地区筛选、DNS | [config/base.conf](config/base.conf) |
 | 指定域名直连 | [rules/personal-direct.list](rules/personal-direct.list) |
 | 指定域名走默认代理 | [rules/personal-proxy.list](rules/personal-proxy.list) |
-| 个人网站交给 🏠 个人服务 | [rules/personal-services.list](rules/personal-services.list) |
+| 补充盈透域名 | [rules/interactive-brokers.list](rules/interactive-brokers.list) |
 | 补充某个服务的域名 | [rules/](rules/) 下的对应名单 |
 | 名单对应的策略和匹配顺序 | [rules/order.json](rules/order.json) |
 
@@ -140,13 +151,19 @@ DOMAIN-SUFFIX,example.org
 
 地区节点通过 `policy-regex-filter` 匹配名称。按需调整筛选表达式，或者直接在「🖐 手动选择」中挑选不符合命名规则的节点。
 
-修改源文件后，用 Python 3.10+ 生成完整配置：
+修改源文件后，用 Python 3.10+ 一次生成两种配置和远程名单：
 
 ```bash
 python3 scripts/build.py
 ```
 
-提交源文件和生成的 `Shadowrocket.conf`，再在客户端更新配置。`vendor/` 保存上游规则，版本记录在 `sources.json`。
+将源文件、`Shadowrocket.conf`、`Shadowrocket-full.conf` 和生成的 `rulesets/` 一起提交，再在客户端更新配置。
+
+`rulesets/<版本>/` 是生成结果，请修改 `rules/` 等源文件后重新生成。每个版本的名单保持不变，构建会保留旧版本，供尚未更新配置的客户端使用；不要直接修改或删除已发布的版本目录。
+
+两版共用 `config/base.conf`；它的 `update-url` 决定发布地址，完整备用版会自动使用同目录下的 `Shadowrocket-full.conf`。Fork 后先修改这个地址，再生成文件。
+
+`vendor/` 保存上游规则，版本记录在 `sources.json`。
 
 </details>
 

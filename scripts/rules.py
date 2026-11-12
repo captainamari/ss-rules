@@ -9,6 +9,7 @@ import ipaddress
 import json
 import re
 from dataclasses import dataclass
+from itertools import groupby
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -257,25 +258,64 @@ def compile_rules(root=ROOT):
 
 
 def render(root=ROOT):
+    """Render both profiles and immutable rulesets from one ordered rule sequence."""
     base = (root / "config/base.conf").read_text(encoding="utf-8")
     if base.count("# @RULES@") != 1:
         raise ValueError("Expected exactly one rule insertion marker")
     groups = groups_from(base)
     rules, report = compile_rules(root)
-    lines, last_path = [], None
     for rule in rules:
         if rule.policy not in groups and rule.policy not in BUILTINS:
             raise ValueError(f"Undefined rule policy: {rule.policy}: {rule.origin}")
-        path = rule.origin.split(":")[0]
-        if path != last_path:
-            lines.extend(["", "# Source: " + path])
-            last_path = path
-        lines.append(rule.text())
-    output = base.replace("# @RULES@", "\n".join(lines).strip())
-    parsed = sections(output)
-    if set(parsed) != {"General", "Proxy", "Proxy Group", "Rule", "Host"}:
-        raise ValueError("Unexpected config sections; MITM/rewrite are intentionally absent")
-    if any(line.startswith(("RULE-SET,", "DOMAIN-SET,")) for line in parsed["Rule"]):
-        raise ValueError("Generated file must be self-contained")
+
+    updates = [line for line in sections(base)["General"] if line.partition("=")[0].strip() == "update-url"]
+    if len(updates) != 1:
+        raise ValueError("Expected one update-url in config/base.conf")
+    update_url = updates[0].partition("=")[2].strip()
+    if not update_url.startswith("https://") or not update_url.endswith("/Shadowrocket.conf"):
+        raise ValueError("update-url must be the public HTTPS URL of Shadowrocket.conf")
+    public_root = update_url.rsplit("/", 1)[0]
+
+    full_lines, main_lines, payloads = [], [], []
+    # Group only adjacent inputs. Moving distant rules with the same policy
+    # together would change first-match routing (notably domestic exceptions).
+    for (source, policy), batch in groupby(rules, key=lambda r: (r.origin.split(":")[0], r.policy)):
+        batch = list(batch)
+        full_lines.extend(["", "# Source: " + source, *[r.text() for r in batch]])
+        if source == "rules/order.json" or source.startswith("rules/personal-"):
+            main_lines.extend(r.text() for r in batch)
+            continue
+        name = f"{len(payloads) + 1:02d}-{Path(source).stem.lower().replace('_', '-')}.list"
+        content = "\n".join([
+            "# Source: " + source,
+            "# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.",
+            *[",".join([r.kind, r.value, *r.options]) for r in batch],
+        ]) + "\n"
+        payloads.append({"name": name, "policy": policy, "content": content})
+        main_lines.append(f"RULE-SET,@RULESET_BASE@/{name},{policy}")
+
+    # A content version keeps old profiles valid when main receives new lists.
+    version = hashlib.sha256(json.dumps(payloads, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+    directory = f"rulesets/{version}"
+    ruleset_base = f"{public_root}/{directory}"
+    outputs = {f"{directory}/{p['name']}": p["content"] for p in payloads}
+    main_rules = "\n".join(main_lines).replace("@RULESET_BASE@", ruleset_base)
+    for filename, body, description in [
+        ("Shadowrocket.conf", main_rules, "远程规则版：首次导入需下载本仓库规则集。"),
+        ("Shadowrocket-full.conf", "\n".join(full_lines).strip(), "完整备用版：全部规则内嵌，无需下载远程规则集。"),
+    ]:
+        output = "# " + description + "\n" + base.replace("# @RULES@", body)
+        output = output.replace(update_url, f"{public_root}/{filename}")
+        parsed = sections(output)
+        if set(parsed) != {"General", "Proxy", "Proxy Group", "Rule", "Host"}:
+            raise ValueError("Unexpected config sections; MITM/rewrite are intentionally absent")
+        if filename == "Shadowrocket-full.conf" and any(line.startswith(("RULE-SET,", "DOMAIN-SET,")) for line in parsed["Rule"]):
+            raise ValueError("Full profile must be self-contained")
+        outputs[filename] = output
+
     report["rule_count"] = len(rules)
-    return output, rules, groups, report
+    report["ruleset_version"] = version
+    report["ruleset_count"] = len(payloads)
+    report["main_rule_count"] = len(main_lines)
+    report["ruleset_files"] = [f"{directory}/{p['name']}" for p in payloads]
+    return outputs, rules, groups, report

@@ -19,3 +19,5 @@ The combined configuration and build tools are distributed under GPL-2.0-only
 - Source files and their original notices: `vendor/blackmatrix7/`.
 
 Exact upstream revisions and checksums are recorded in `sources.json`.
+Generated lists in `rulesets/` identify their source files; both configuration
+profiles use the same corresponding sources and build scripts.
