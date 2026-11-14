@@ -104,13 +104,17 @@ def groups_from(text: str):
             raise ValueError(f"Duplicate members: {name}")
         if "policy-regex-filter" in options:
             re.compile(options["policy-regex-filter"])
+            # Keep this project's policy selectors separate from node filters.
+            # Mixing both modes hid DIRECT/region choices in the client UI.
+            if members:
+                raise ValueError(f"Separate policy members and node regex into different groups: {name}")
         if "hidden" in options and options["hidden"] not in {"0", "1"}:
             raise ValueError(f"Invalid hidden setting: {name}")
         default = options.get("policy-select-name")
         if default is not None and default not in members:
             raise ValueError(f"Invalid default member of {name}: {default}")
-        if kind == "select" and not members:
-            raise ValueError(f"Manual selector requires an explicit default: {name}")
+        if kind == "select" and not members and "policy-regex-filter" not in options:
+            raise ValueError(f"Selector requires policies or a node regex: {name}")
         if kind != "select":
             if not options.get("url", "").startswith("https://"):
                 raise ValueError(f"Automatic test needs an HTTPS URL: {name}")
