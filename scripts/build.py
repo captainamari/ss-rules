@@ -26,8 +26,8 @@ def main():
         report_path = ROOT / ".local/build-report.json"
         report_path.parent.mkdir(exist_ok=True)
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(f"OK: {report['rule_count']} rules; {report['ruleset_count']} versioned lists; "
-              f"{report['main_rule_count']} main entries; version {report['ruleset_version']}")
+        print(f"OK: {report['rule_count']} rules; {report['ruleset_count']} independently versioned lists; "
+              f"{report['main_rule_count']} main entries")
         for name in ("Shadowrocket.conf", "Shadowrocket-full.conf"):
             print(f"{name}: {len(outputs[name].encode('utf-8')):,} bytes")
         return 0

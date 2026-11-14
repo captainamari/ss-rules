@@ -8,7 +8,7 @@
     },
     {
       "path": "rules/personal-proxy.list",
-      "policy": "🚀 默认代理",
+      "policy": "🚀 默认出口",
       "mode": "strict"
     },
     {
@@ -69,6 +69,11 @@
         "DOMAIN-SUFFIX,gvt1.com",
         "DOMAIN-SUFFIX,gvt2.com"
       ]
+    },
+    {
+      "path": "rules/mail-extra.list",
+      "policy": "📮 邮件服务",
+      "mode": "strict"
     },
     {
       "path": "vendor/lingjing/Mail.list",
@@ -195,6 +200,6 @@
   ],
   "tail": [
     "GEOIP,CN,🇨🇳 国内服务",
-    "FINAL,🐟 其他流量"
+    "FINAL,🐟 未分类流量"
   ]
 }

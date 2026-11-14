@@ -1,0 +1,4 @@
+# Source: rules/google-extra.list
+# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.
+DOMAIN-SUFFIX,gvt1.com
+DOMAIN-SUFFIX,gvt2.com

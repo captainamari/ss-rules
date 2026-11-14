@@ -1,0 +1,21 @@
+# Mail-specific web, API and attachment endpoints, before vendor-wide rules.
+# Shared account login, cloud storage and CDN domains stay in their vendor groups.
+# Gmail: https://support.google.com/a/users/answer/2622308
+# API: https://developers.google.com/workspace/gmail/api/reference/rest
+# Attachments: https://support.google.com/mail/answer/6584
+DOMAIN,mail.google.com
+DOMAIN,gmail.googleapis.com
+DOMAIN,mail-attachment.googleusercontent.com
+DOMAIN-SUFFIX,gmail.com
+DOMAIN-SUFFIX,googlemail.com
+
+# Outlook web: https://support.microsoft.com/en-us/outlook/getstarted/what-version-of-outlook-do-i-have
+# Microsoft 365: https://learn.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges
+DOMAIN,outlook.live.com
+DOMAIN,outlook.office.com
+DOMAIN,outlook.cloud.microsoft
+
+# iCloud IMAP/SMTP remain in vendor/lingjing/Mail.list (mail.me.com).
+# https://support.apple.com/en-us/102525
+# icloud.com/mail shares its host with other iCloud apps, so stays in Apple services.
+# QQ/163 mail stays in domestic services; no broad port or vendor-domain overrides.

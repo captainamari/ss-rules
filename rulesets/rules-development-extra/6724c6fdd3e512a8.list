@@ -1,0 +1,6 @@
+# Source: rules/development-extra.list
+# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.
+DOMAIN-SUFFIX,pypi.org
+DOMAIN-SUFFIX,pythonhosted.org
+DOMAIN-SUFFIX,docker.com
+DOMAIN-SUFFIX,docker.io

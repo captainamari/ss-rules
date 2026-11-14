@@ -276,7 +276,7 @@ def render(root=ROOT):
         raise ValueError("update-url must be the public HTTPS URL of Shadowrocket.conf")
     public_root = update_url.rsplit("/", 1)[0]
 
-    full_lines, main_lines, payloads = [], [], []
+    full_lines, main_lines, outputs = [], [], {}
     # Group only adjacent inputs. Moving distant rules with the same policy
     # together would change first-match routing (notably domestic exceptions).
     for (source, policy), batch in groupby(rules, key=lambda r: (r.origin.split(":")[0], r.policy)):
@@ -285,21 +285,23 @@ def render(root=ROOT):
         if source == "rules/order.json" or source.startswith("rules/personal-"):
             main_lines.extend(r.text() for r in batch)
             continue
-        name = f"{len(payloads) + 1:02d}-{Path(source).stem.lower().replace('_', '-')}.list"
         content = "\n".join([
             "# Source: " + source,
             "# SPDX-License-Identifier: GPL-2.0-only; see NOTICE.md for upstream notices.",
             *[",".join([r.kind, r.value, *r.options]) for r in batch],
         ]) + "\n"
-        payloads.append({"name": name, "policy": policy, "content": content})
-        main_lines.append(f"RULE-SET,@RULESET_BASE@/{name},{policy}")
+        # Version each payload, independently of its position and target policy.
+        # Adding a source or changing a group name keeps unchanged list URLs stable.
+        source_key = re.sub(r"[^a-z0-9-]+", "-", str(Path(source).with_suffix("")).lower()).strip("-")
+        digest = hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
+        name = f"rulesets/{source_key}/{digest}.list"
+        if name in outputs and outputs[name] != content:
+            raise ValueError(f"Ruleset path collision: {name}")
+        outputs[name] = content
+        main_lines.append(f"RULE-SET,{public_root}/{name},{policy}")
 
-    # A content version keeps old profiles valid when main receives new lists.
-    version = hashlib.sha256(json.dumps(payloads, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
-    directory = f"rulesets/{version}"
-    ruleset_base = f"{public_root}/{directory}"
-    outputs = {f"{directory}/{p['name']}": p["content"] for p in payloads}
-    main_rules = "\n".join(main_lines).replace("@RULESET_BASE@", ruleset_base)
+    ruleset_files = list(outputs)
+    main_rules = "\n".join(main_lines)
     for filename, body, description in [
         ("Shadowrocket.conf", main_rules, "远程规则版：首次导入需下载本仓库规则集。"),
         ("Shadowrocket-full.conf", "\n".join(full_lines).strip(), "完整备用版：全部规则内嵌，无需下载远程规则集。"),
@@ -314,8 +316,7 @@ def render(root=ROOT):
         outputs[filename] = output
 
     report["rule_count"] = len(rules)
-    report["ruleset_version"] = version
-    report["ruleset_count"] = len(payloads)
+    report["ruleset_count"] = len(ruleset_files)
     report["main_rule_count"] = len(main_lines)
-    report["ruleset_files"] = [f"{directory}/{p['name']}" for p in payloads]
+    report["ruleset_files"] = ruleset_files
     return outputs, rules, groups, report
