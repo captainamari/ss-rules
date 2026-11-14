@@ -71,6 +71,11 @@
       ]
     },
     {
+      "path": "rules/video.list",
+      "policy": "📺 国际视频",
+      "mode": "strict"
+    },
+    {
       "path": "rules/mail-extra.list",
       "policy": "📮 邮件服务",
       "mode": "strict"

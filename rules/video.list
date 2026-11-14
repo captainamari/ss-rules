@@ -1,0 +1,57 @@
+# 国际视频：Netflix、Disney+、Prime Video、Twitch 的专用域名。
+# 根据 blackmatrix7/ios_rule_script 的名单精选，保留 GPL-2.0-only 许可。
+# 不收录共享云平台网段、整片公共 CDN、通用统计和购物域名。
+# 新增服务时补充专用域名；出口由 rules/order.json 关联的策略组决定。
+
+# Netflix
+# https://github.com/blackmatrix7/ios_rule_script/blob/0b6897dc17e0c513d25449c935a9694818e32f0c/rule/Shadowrocket/Netflix/Netflix.list
+DOMAIN-SUFFIX,netflix.ca
+DOMAIN-SUFFIX,netflix.com
+DOMAIN-SUFFIX,netflix.com.au
+DOMAIN-SUFFIX,netflix.net
+DOMAIN-SUFFIX,netflix.com.edgesuite.net
+DOMAIN-SUFFIX,nflxext.com
+DOMAIN-SUFFIX,nflximg.com
+DOMAIN-SUFFIX,nflximg.net
+DOMAIN-SUFFIX,nflxsearch.net
+DOMAIN-SUFFIX,nflxso.net
+DOMAIN-SUFFIX,nflxvideo.net
+
+# Disney+
+# https://github.com/blackmatrix7/ios_rule_script/blob/0b6897dc17e0c513d25449c935a9694818e32f0c/rule/Shadowrocket/Disney/Disney.list
+DOMAIN-SUFFIX,bamgrid.com
+DOMAIN-SUFFIX,disney-plus.net
+DOMAIN-SUFFIX,disneyplus.com
+DOMAIN-SUFFIX,disneystreaming.com
+DOMAIN-SUFFIX,disneysubscription.com
+DOMAIN-SUFFIX,dssedge.com
+DOMAIN-SUFFIX,dssott.com
+DOMAIN-SUFFIX,streamingdisney.net
+
+# Prime Video
+# https://github.com/blackmatrix7/ios_rule_script/blob/0b6897dc17e0c513d25449c935a9694818e32f0c/rule/Shadowrocket/AmazonPrimeVideo/AmazonPrimeVideo.list
+DOMAIN,d1v5ir2lpwr8os.cloudfront.net
+DOMAIN,d22qjgkvxw22r6.cloudfront.net
+DOMAIN,d25xi40x97liuc.cloudfront.net
+DOMAIN,d27xxe7juh1us6.cloudfront.net
+DOMAIN,dmqdd6hw24ucf.cloudfront.net
+DOMAIN-SUFFIX,aiv-cdn.net
+DOMAIN-SUFFIX,aiv-delivery.net
+DOMAIN-SUFFIX,amazonprimevideos.com
+DOMAIN-SUFFIX,amazonvideo.com
+DOMAIN-SUFFIX,atv-ps.amazon.com
+DOMAIN-SUFFIX,avodmp4s3ww-a.akamaihd.net
+DOMAIN-SUFFIX,prime-video.com
+DOMAIN-SUFFIX,primevideo.com
+DOMAIN-SUFFIX,pv-cdn.net
+
+# Twitch
+# https://github.com/blackmatrix7/ios_rule_script/blob/0b6897dc17e0c513d25449c935a9694818e32f0c/rule/Shadowrocket/Twitch/Twitch.list
+DOMAIN-SUFFIX,ext-twitch.tv
+DOMAIN-SUFFIX,jtvnw.net
+DOMAIN-SUFFIX,live-video.net
+DOMAIN-SUFFIX,ttvnw.net
+DOMAIN-SUFFIX,twitch-ext.rootonline.de
+DOMAIN-SUFFIX,twitch.tv
+DOMAIN-SUFFIX,twitchcdn.net
+DOMAIN-SUFFIX,twitchsvc.net

@@ -4,7 +4,7 @@
 
 **扫码导入 · 服务选择策略 · 地区自动选线**
 
-已有一条可用节点，就可以按默认方式开始使用；有地区需求，再调整对应服务。
+YouTube 与国际视频默认走新加坡；其他服务按分类选择出口。
 
 <img src="docs/assets/config-qr.png" width="280" height="280" alt="使用 Shadowrocket 扫码导入 ss-rules 配置" />
 
@@ -22,7 +22,7 @@
 2. **扫码导入**：扫描上方二维码，在「配置」页使用 `Shadowrocket.conf`，等待规则集加载完成，确认配置处于使用中（✔️）。
 3. **开启连接**：首页「全局路由」选择「配置」，打开连接开关。
 
-**默认无需逐个配置服务组，也不要求同时拥有香港、美国、日本和台湾节点。** 海外服务和未分类流量跟随首页节点；国内服务、普通 Apple 服务、香港银行及名单中的应用内 DNS 默认直连。某条节点能否访问某项服务，仍取决于节点及服务本身。
+**🎬 YouTube 和 📺 国际视频默认使用 🇸🇬 新加坡自动，需要至少一条可匹配的新加坡节点。** 没有 SG 节点时，将这两个视频组改选「🚀 默认出口」，即可使用首页节点。其他代理服务和未分类流量默认跟随首页节点；国内服务、普通 Apple 服务、香港银行及名单中的应用内 DNS 默认直连，不要求同时拥有全部地区节点。
 
 <details>
 <summary>📋 同一台手机导入，或远程规则下载失败</summary>
@@ -61,24 +61,27 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 | `DIRECT` | 直连，不使用代理节点 |
 | `PROXY` | 使用首页选中的节点 |
 | 🚀 默认出口 | 多个服务共用的默认策略，初始选择 `PROXY` |
-| 🇭🇰 香港自动 / 🇺🇸 美国自动 / 🇯🇵 日本自动 / 🇹🇼 台湾自动 | 在对应地区的候选节点中自动测速选线 |
+| 🇭🇰 香港自动 / 🇸🇬 新加坡自动 / 🇺🇸 美国自动 / 🇯🇵 日本自动 / 🇹🇼 台湾自动 | 在对应地区的候选节点中自动测速选线 |
 | ⚡ 自动测速 | 在全部候选节点中测速选线，可能跨地区 |
 | 🖐 手动选择 | 使用在这个组中手工选定的节点 |
 | `REJECT` | 阻止连接 |
 
 | 我想…… | 这样选 |
 |---|---|
-| PROXY选中的节点 | **🚀 默认出口 → PROXY**，初始就是此选项 |
+| 跟随首页选中的节点 | **🚀 默认出口 → PROXY**，初始就是此选项 |
 | 🇨🇳 国内服务直连 | **🇨🇳 国内服务 → DIRECT**，已经默认选好，不需要节点 |
 | 🤖 ChatGPT 使用美国地区 | **🤖 ChatGPT → 🇺🇸 美国自动** |
 | 📈 盈透等券商使用香港地区 | **📈 券商服务 → 🇭🇰 香港自动** |
 | 📮 邮件使用日本地区 | **📮 邮件服务 → 🇯🇵 日本自动** |
-| 🎬 YouTube 自动选择香港线路 | **🎬 YouTube → 🇭🇰 香港自动** |
+| 🎬 YouTube 自动选择新加坡线路 | **🎬 YouTube → 🇸🇬 新加坡自动**，默认已选好 |
+| 📺 Netflix、Disney+、Prime Video、Twitch 使用新加坡 | **📺 国际视频 → 🇸🇬 新加坡自动**，默认已选好 |
 | 🐟 未匹配其他规则的请求走台湾 | **🐟 未分类流量 → 🇹🇼 台湾自动** |
 | 📌 默认出口固定一条节点 | 先在 **🖐 手动选择** 中选节点，再设 **🚀 默认出口 → 🖐 手动选择** |
 | ↩️ 取消某个代理服务的单独选择 | 将该服务重新选为 **🚀 默认出口** |
 
 各服务可以独立选择地区策略；选择「🚀 默认出口」的服务才跟随默认出口一起变化。直连分类不会因默认出口变化自动改为代理。
+
+国际视频名单覆盖上述服务的专用域名；哔哩哔哩等国内视频继续按国内规则直连。共享登录、支付和未列出的域名按其他规则处理，选择 SG 也不代表节点一定支持该平台播放。
 
 地区自动组使用 `url-test`，每 10 分钟发起测速，延迟改善超过 100ms 时才换线，以减少小幅波动引起的切换。测速衡量探测地址的响应，不等于下载带宽或某项服务一定可用。
 
@@ -87,13 +90,14 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 <details>
 <summary>🧭 节点少、没有某个地区、节点名称看不懂</summary>
 
-- **只有一条节点**：保持「🚀 默认出口 → PROXY」，默认代理服务可共用首页节点。直连服务使用 `DIRECT`，不依赖它。
+- **只有一条节点**：保持「🚀 默认出口 → PROXY」；如果它不是新加坡节点，再把 YouTube 和国际视频两组改选默认出口。直连服务使用 `DIRECT`，不依赖节点。
+- **没有新加坡节点**：YouTube 和国际视频两组都改选「🚀 默认出口」或已有的其他地区组；空的新加坡组不会自动借用其他地区节点。
 - **没有美国节点**：不要选择「🇺🇸 美国自动」。使用默认出口或手动选择组；配置不会生成美国节点，也不保证现有节点满足服务的地区要求。
 - **节点不带地区名称**：可以在「🖐 手动选择」中选它，或者在首页选它并使用 `PROXY`。地区自动组无法自动归类它。
 - **名称是流量/到期提示**：这类信息条目会被筛除，不应当作节点选择。
 - **节点被订阅删除或改名**：核对地区组的候选节点；手动选择失效时重新选择，不依赖客户端的隐式回退。
 
-常见地区写法包括 `香港01` / `HK01` / `🇭🇰 01`、`美国01` / `US01` / `🇺🇸 01`，以及对应的日本、台湾名称。
+常见地区写法包括 `香港01` / `HK01` / `🇭🇰 01`、`美国01` / `US01` / `🇺🇸 01`，以及对应的日本、台湾名称。新加坡支持 `SG01`、`SG-01`、`sg 01`、`SGP01`、`Singapore 01`、`新加坡01`、`狮城01`、`獅城01`、`🇸🇬 01`。
 
 名称是筛选线索，不是出口地理验证。`香港中转-美国01` 等混合名称可能进入多个地区组，应向节点提供者确认实际出口；无法可靠归类时，可使用手动选择组。需要限定订阅范围时，只编辑对应节点组，不在服务组中开启节点筛选。
 
@@ -102,7 +106,7 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 </details>
 
 <details>
-<summary>🗺 分流示例：券商香港、AI 美国、邮件日本、未分类台湾</summary>
+<summary>🗺 分流示例：视频新加坡、券商香港、AI 美国、邮件日本、未分类台湾</summary>
 
 先确认地区组里已有对应地区的可用节点，再在服务组中选择：
 
@@ -114,6 +118,7 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 | 🤖 ChatGPT、🧠 Claude、✨ Google AI | 分别选择 🇺🇸 美国自动 |
 | 🧩 其他 AI、🍎 Apple 智能 | 也需要美国时，分别选择 🇺🇸 美国自动 |
 | 📮 邮件服务 | 🇯🇵 日本自动 |
+| 🎬 YouTube、📺 国际视频 | 保持 🇸🇬 新加坡自动 |
 | 🐟 未分类流量 | 🇹🇼 台湾自动 |
 | 🇨🇳 国内服务 | 保持 DIRECT，不选择节点 |
 
@@ -133,7 +138,7 @@ https://raw.githubusercontent.com/captainamari/ss-rules/main/Shadowrocket.conf
 flowchart TD
     A["请求进入本配置的规则匹配"] --> B{"个人例外或基础规则命中？"}
     B -->|是| P["使用命中规则指定的策略"]
-    B -->|否| C{"AI、邮件、券商等专用规则命中？"}
+    B -->|否| C{"AI、视频、邮件、券商等专用规则命中？"}
     C -->|是| P
     C -->|否| D{"Google、Microsoft、Apple 通用规则命中？"}
     D -->|是| P
@@ -155,6 +160,9 @@ flowchart TD
 | `copilot.microsoft.com` | 🧩 其他 AI，优先于 Microsoft 通用规则 |
 | `smtp.office365.com`、`outlook.office365.com`、`outlook.live.com`、`outlook.office.com`、`outlook.cloud.microsoft` | 📮 邮件服务 |
 | `mail.google.com`、`gmail.googleapis.com`、`mail-attachment.googleusercontent.com` | 📮 邮件服务 |
+| `youtube.com`、`googlevideo.com` | 🎬 YouTube，默认 🇸🇬 新加坡自动 |
+| `netflix.com`、`disneyplus.com`、`primevideo.com`、`twitch.tv` | 📺 国际视频，默认 🇸🇬 新加坡自动 |
+| `bilibili.com` | 🇨🇳 国内服务，默认 DIRECT |
 | `accounts.google.com` | 🔎 Google，共享登录入口 |
 | `login.microsoftonline.com` | 🪟 Microsoft，共享登录入口 |
 | `deepseek.com`、`doubao.com`、`mail.qq.com`、`mail.163.com` | 🇨🇳 国内服务 |
@@ -169,13 +177,14 @@ flowchart TD
 | 1 | 个人直连例外、个人代理例外 | DIRECT / 🚀 默认出口 |
 | 2 | 局域网、应用内 DNS、明确国内服务例外 | 直连 |
 | 3 | 🤖 ChatGPT、🧠 Claude、✨ Google AI、🧩 其他 AI、🍎 Apple 智能 | 🚀 默认出口 |
-| 4 | 🎬 YouTube、📮 邮件服务 | 🚀 默认出口 |
-| 5 | 🏦 香港银行 | DIRECT |
-| 6 | 📈 券商服务、💻 开发服务、✈️ Telegram | 🚀 默认出口 |
-| 7 | 🔎 Google、🪟 Microsoft、🔔 Apple 推送 | 🚀 默认出口 |
-| 8 | 🍏 Apple 服务 | DIRECT |
-| 9 | 🇨🇳 国内域名名单、GEOIP CN | DIRECT |
-| 10 | 🐟 未分类流量（FINAL） | 🚀 默认出口 |
+| 4 | 🎬 YouTube、📺 国际视频 | 🇸🇬 新加坡自动 |
+| 5 | 📮 邮件服务 | 🚀 默认出口 |
+| 6 | 🏦 香港银行 | DIRECT |
+| 7 | 📈 券商服务、💻 开发服务、✈️ Telegram | 🚀 默认出口 |
+| 8 | 🔎 Google、🪟 Microsoft、🔔 Apple 推送 | 🚀 默认出口 |
+| 9 | 🍏 Apple 服务 | DIRECT |
+| 10 | 🇨🇳 国内域名名单、GEOIP CN | DIRECT |
+| 11 | 🐟 未分类流量（FINAL） | 🚀 默认出口 |
 
 个人例外源名单默认留空。规则按照 [rules/order.json](rules/order.json) 生成；专用服务先于厂商通用分类。远程规则版和完整备用版来自同一条有序规则序列。
 
@@ -198,7 +207,7 @@ iCloud 的 `mail.me.com` 收发服务器归邮件；`icloud.com/mail` 与其他 
 
 | 需求 | 修改位置 |
 |---|---|
-| 给已有服务补域名 | `rules/` 下的对应名单，例如 [盈透](rules/interactive-brokers.list)、[邮件](rules/mail-extra.list) |
+| 给已有服务补域名 | `rules/` 下的对应名单，例如 [盈透](rules/interactive-brokers.list)、[邮件](rules/mail-extra.list)、[国际视频](rules/video.list) |
 | 新服务沿用现有分类 | 新建 `rules/new-service.list`，在 [rules/order.json](rules/order.json) 关联已有策略组 |
 | 新服务需要独立选出口 | 再在 [config/base.conf](config/base.conf) 定义组，默认继承「🚀 默认出口」，并同步规则的策略名称 |
 | 域名直连或走默认出口 | [personal-direct.list](rules/personal-direct.list) / [personal-proxy.list](rules/personal-proxy.list) |

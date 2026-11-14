@@ -17,7 +17,10 @@ The combined configuration and build tools are distributed under GPL-2.0-only
 - Source: https://github.com/blackmatrix7/ios_rule_script
 - License: GPL version 2, retained in [LICENSE](LICENSE).
 - Source files and their original notices: `vendor/blackmatrix7/`.
+- Selected video-service domains: `rules/video.list`; its comments link to the
+  pinned upstream lists and retain the GPL-2.0-only attribution.
 
-Exact upstream revisions and checksums are recorded in `sources.json`.
+Vendor snapshot revisions and checksums are recorded in `sources.json`;
+selected video-domain source revisions are linked in `rules/video.list`.
 Generated lists in `rulesets/` identify their source files; both configuration
 profiles use the same corresponding sources and build scripts.
